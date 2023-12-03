@@ -297,8 +297,8 @@ behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                       calculationButtons(),
-                        calculationButtons(),
-                        calculationButtons(),
+                        calculationButtons(text: "Loan Calculator"),
+                        calculationButtons(text: "Interest Calculator",icon: Icons.percent),
                         calculationButtons(),
 
                       ],
@@ -472,7 +472,7 @@ behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
     );
   }
 
-  Padding calculationButtons() {
+  Padding calculationButtons({String? text, IconData? icon, }) {
     return Padding(
       padding: const EdgeInsets.only(right: 16.0),
       child: Column(
@@ -481,11 +481,11 @@ behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
                       CircleAvatar(
                         radius: 30,
                         backgroundColor: Colors.white,
-                        child: Icon(Icons.calculate,color: Colors.blue,size: 30,),
+                        child: Icon(icon??Icons.calculate,color: Colors.blue,size: 30,),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(top: 8.0),
-                        child: ConstantText.genericText(text: "EMI Calculator", fontSize: 12),
+                        child: ConstantText.genericText(text: text??"EMI Calculator", fontSize: 12),
                       ),
                     ],
                   ),
